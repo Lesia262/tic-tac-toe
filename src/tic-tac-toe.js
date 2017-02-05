@@ -11,6 +11,9 @@ class TicTacToe {
 
     nextTurn(rowIndex, columnIndex) {
         var row, col;
+        
+        var winner1 = null;
+
         row = rowIndex;
         col = columnIndex;
         if(this.field[row*3+col] != null) return;
@@ -20,6 +23,18 @@ class TicTacToe {
         } else {
             this.player = 'x';
         }   
+        if(this.field[0]==this.field[1]) if(this.field[1]==this.field[2]) winner1 = this.field[2];
+        if(this.field[3]==this.field[4]) if(this.field[4]==this.field[5]) winner1 = this.field[5];
+        if(this.field[6]==this.field[6]) if(this.field[6]==this.field[7]) winner1 = this.field[7];
+        if(this.field[0]==this.field[3]) if(this.field[3]==this.field[6]) winner1 = this.field[6];
+        if(this.field[1]==this.field[4]) if(this.field[4]==this.field[7]) winner1 = this.field[7];
+        if(this.field[2]==this.field[5]) if(this.field[5]==this.field[8]) winner1 = this.field[8];
+        if(this.field[0]==this.field[4]) if(this.field[4]==this.field[8]) winner1 = this.field[8];
+        if(this.field[2]==this.field[4]) if(this.field[4]==this.field[6]) winner1 = this.field[6];
+
+
+        if(winner1 != null) this.winner = winner1;
+
 
     }
 
