@@ -19,15 +19,22 @@ class TicTacToe {
             this.player = 'o';
         } else {
             this.player = 'x';
-        }
+        }   
+
     }
 
-    isFinished() {
-
+    isFinished() { 
+            if(this.winner != null) return true;
+        var result = true;
+            for(var a=0; a<9; a++) {
+                if(this.field[a] == null) result = false;
+            }
+        return result; 
+        // return this.winner;
     }
 
     getWinner() {
-
+        return this.winner;
     }
 
     noMoreTurns() {
@@ -43,7 +50,14 @@ class TicTacToe {
     
 
     isDraw() {
-
+        var result = true;
+        for(var a = 0; a<9; a++){
+            if(this.field[a]== null){
+                result = false;
+            }
+        }
+        if(this.winner != null) result = false;
+    return result;
     }
 
     getFieldValue(rowIndex, colIndex) {
