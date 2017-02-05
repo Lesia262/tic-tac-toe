@@ -31,8 +31,16 @@ class TicTacToe {
     }
 
     noMoreTurns() {
-
+        var result = true;
+        for(var a = 0; a<9; a++){
+            if(this.field[a]== null){
+                result = false;
+            }
+        }
+    return result;
     }
+
+    
 
     isDraw() {
 
